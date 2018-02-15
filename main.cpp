@@ -1,48 +1,69 @@
 #include <iostream>
+using namespace std;
 
-void main() 
+void main()
 {
+
+	//cout << "hello world!";
+
+	int height = 0;
+	char firstLetterOfName = 0;
+	int avatarHP = 0;
+	bool Succeed = 0;
+
+	system("color B1"); // make terminal green cause y not
+	// maybe use this and red to make the player "feel" getting hit ie flash red
+
+
+	cout << "Welcome to AoZ The Reckoning!" << endl;
+	cout << "The Adventures of Zim : The Reckoning Tells the tale" << endl;
+	cout << "of our protagonist as he battles beast foul" << endl << endl;
+	cout << "-------------------------------------------------------" << endl << endl;
+	cout << "First, some questions..." << endl;
+
+	jmp1:cout << "How Heavy are you in Pounds" << endl;
+
+	cin >> height;
 	
-	//std::cout << "hello world!";
-			int height = 0;
-		char firstLetterOfName = 0;
-		int avatarHP = 0;
+	if (cin.fail()) { 
+		cout << "You are hit from behind you by cinders Fireball try again" << endl; 
+		cin.clear();
+		cin.ignore(cin.rdbuf()->in_avail());
+		goto jmp1; // Love this command http://www.c4learn.com/cplusplus/c-goto-statements/
+	}
+	else if (height == int(720)) {
+		cout << "I see you know your character sheet well +1 inspiration." << endl;
+	}
+	else {
+		cout << "You entered " << height << endl;
+	}
+		cin.clear();
+		cin.ignore(cin.rdbuf()->in_avail());
 
-		system("color B1"); // make terminal green cause y not
-		// maybe use this and red to make the player "feel" getting hit ie flash red
+					jmp2:cout << "What is the first letter of your name? " <<  endl;
 
+					cin >> firstLetterOfName;
 
-					std::cout << "Welcome to AoZ The Reckoning!" << std::endl;
-					std::cout << "The Adventures of Zim : The Reckoning Tells the tale"<< std::endl;
-					std::cout << "of our protagonist as he battles beast foul" << std::endl << std::endl;
-					std::cout << "-------------------------------------------------------" << std::endl << std::endl;
-					std::cout << "First, some questions..." << std::endl;					
-					std::cout << "How Heavy are you in Pounds" << std::endl;
-
-					std::cin >> height;
-
-			if (std::cin.fail()) { std::cout << "You have failed the first challenge and are eaten by a grue." << std::endl; }
-			else if (height == int(720)) {std::cout << "I see you know your character sheet well +1 inspiration." << std::endl; }
-			else { std::cout << "You entered " << height << std::endl; }
+			if (cin.fail() || !isalpha(firstLetterOfName)) { cout << "You have failed the second challenge and are noticed and sniped by spotted by his unatural Perception" << endl; 
+			cin.clear();
+			cin.ignore(cin.rdbuf()->in_avail());
+			goto jmp2;
+			}
+			else { cout << "You entered " << firstLetterOfName << endl; }
 			
-		std::cin.clear();
-		std::cin.ignore(std::cin.rdbuf()->in_avail());
+		cin.clear();
+		cin.ignore(cin.rdbuf()->in_avail());
 
-					std::cout << "What is the first letter of your name? " << std::endl;
-
-					std::cin >> firstLetterOfName;
-
-			if (std::cin.fail() || !isalpha(firstLetterOfName)) { std::cout << "You have failed the second challenge and are eaten by a grue." << std::endl; }
-			else { std::cout << "You entered " << firstLetterOfName << std::endl; }
-			
-		std::cin.clear();
-		std::cin.ignore(std::cin.rdbuf()->in_avail());
 
 			if (firstLetterOfName != 0) { avatarHP = (float)height / (firstLetterOfName * 0.02f); }
 			else { avatarHP = 0; }
-									std::cout << std::endl << "Using a complex deterministic algorithm, it has been calculated that you have " << avatarHP << " hitpoint(s)." << std::endl;
-		std::cout << std::endl << "Press 'Enter' to exit the program." << std::endl;
-	std::cin.get();
+					
+				cout << endl << "Using a complex deterministic algorithm, it has been calculated that you have " << avatarHP << " hitpoint(s)." << endl;
+
+	
+
+	cout << endl << "Press 'Enter' to exit the program." << endl;
+	cin.get();
 	
 	return;
 }
