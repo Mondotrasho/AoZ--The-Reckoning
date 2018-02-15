@@ -1,0 +1,6 @@
+AoZ the reckoning devlog
+
+things to add
+-terminal flash red on damage
+-make each question and user input whipe previous user input similar to how '/r' works at the end of a cout << "blah blah" << '/r' 
+-make table of responses so I can write up a text doc with generic failure messages and it randomly picks a line
